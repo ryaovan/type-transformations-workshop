@@ -1,3 +1,4 @@
+import { Value } from "ts-toolbelt/out/Misc/JSON/Value";
 import { Equal, Expect } from "../helpers/type-utils";
 
 interface Values {
@@ -8,7 +9,7 @@ interface Values {
 
 type ValuesAsUnionOfTuples = {
   [K in keyof Values]: [K, Values[K]];
-};
+}[keyof Values];
 
 type tests = [
   Expect<
